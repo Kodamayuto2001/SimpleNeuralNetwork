@@ -1,9 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 double Sigma(double*,double*,unsigned int,unsigned int);
-double ReLu(double);
+double ReLU(double);
 double Neuron(double*,double*,unsigned int,unsigned int,double,const char*);
 
 int main(void){
@@ -14,7 +13,7 @@ int main(void){
     unsigned int xLength = sizeof(x)/sizeof(double);
     unsigned int wLength = sizeof(w)/sizeof(double);
 
-    double y = Neuron(x,w,xLength,wLength,bias,"ReLu");
+    double y = Neuron(x,w,xLength,wLength,bias,"ReLU");
     // printf("%f",y);
 
     return (int)0;
@@ -29,7 +28,7 @@ double Sigma(double* x,double* w,unsigned int x_len,unsigned int w_len)
     return (double)y;
 }
 
-double ReLu(double s)
+double ReLU(double s)
 {
     if(s>0.0){
         return (double)s;
@@ -53,8 +52,8 @@ double Neuron(
     double s = Sigma(x,w,x_len,w_len) + bias;
 
     // 活性化関数
-    if (name == (const char*)"ReLu"){
-        y = ReLu(s);
+    if (name == (const char*)"ReLU"){
+        y = ReLU(s);
     }
 
     return (double)y;
